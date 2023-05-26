@@ -1,0 +1,4 @@
+Without accelerator
+    Simulation Time: 220901040 ns
+    Number of instruction: 9934621
+With accelerator
