@@ -162,12 +162,15 @@ class PE : public sc_module {
             switch (addr) {
             case PE_OUTPUT_A_ADDR:
                 data.f = (float) o_a.read();
+                delay = sc_time(90, SC_NS);
                 break;
             case PE_OUTPUT_B_ADDR:
                 data.f = (float) o_b.read();
+                delay = sc_time(10, SC_NS);
                 break;
             case PE_OUTPUT_Z_ADDR:
                 data.f = (float) o_z.read();
+                delay = sc_time(10, SC_NS);
                 break;
             default:
                 std::cerr << "READ Error! PE::blocking_transport: address 0x"
@@ -186,12 +189,15 @@ class PE : public sc_module {
             switch (addr) {
             case PE_INPUT_A_ADDR:
                 i_a.write((data_t) data.f);
+                delay = sc_time(30, SC_NS);
                 break;
             case PE_INPUT_B_ADDR:
                 i_b.write((data_t) data.f);
+                delay = sc_time(10, SC_NS);
                 break;
             case PE_INPUT_Z_ADDR:
                 i_z.write((angle_t) data.f);
+                delay = sc_time(10, SC_NS);
                 break;
             default:
                 std::cerr << "WRITE Error! SobelFilter::blocking_transport: address 0x"
